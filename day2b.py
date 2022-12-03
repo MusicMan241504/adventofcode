@@ -23,4 +23,4 @@ for line in file:
         score = score + 1+6
 
 print(score)
-
+file.close()

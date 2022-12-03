@@ -10,5 +10,6 @@ for line in file:
     for char in l:
         if char in r:
             total = total + letters.find(char)+1
-            c = char
+            break
 print(total)
+file.close()

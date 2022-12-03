@@ -23,4 +23,5 @@ for line in file:
         score = score + 3+3
 
 print(score)
+file.close()
 
