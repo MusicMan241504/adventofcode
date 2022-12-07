@@ -18,7 +18,8 @@ class Node:
 
 root = Node('/')
 root.child.append(Node('docs'))
-root.child[0].child.append(Node('file.txt', 100))
+tree = root.child[0]
+tree.child.append(Node('file.txt', 100))
 root.child.append(Node('file2.txt', 200))
 
 
