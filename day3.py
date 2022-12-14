@@ -6,7 +6,6 @@ for line in file:
     text = line.strip()
     l = text[:int(len(text)/2)]
     r = text[int(len(text)/2):]
-    c = ''
     for char in l:
         if char in r:
             total = total + letters.find(char)+1
