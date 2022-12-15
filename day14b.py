@@ -27,12 +27,12 @@ for line in lines:
     for coord in coords:
         coord = coord.split(',')
         if int(coord[0]) < minx:
-            minx = int(coord[0])
+            minx = int(coord[0])-170
         if int(coord[0]) > maxx:
-            maxx = int(coord[0])
+            maxx = int(coord[0])+170
         if int(coord[1]) > maxy:
             maxy = int(coord[1])
-arr = [['.' for i in range(maxy+1)] for j in range(maxx-minx+1)]
+arr = [['.' for i in range(maxy+1+2)] for j in range(maxx-minx+1)]
 arr[500-minx][0] = '+'
 for line in lines:
     coords = line.split(' -> ')
@@ -50,6 +50,12 @@ for line in lines:
 #printArr(arr)
 
 sand = [500-minx,0]
+
+#add floor
+for i in range(len(arr)):
+    arr[i][maxy+2] = '#'
+
+
 count = 0
 falling = True
 while falling:
@@ -58,13 +64,13 @@ while falling:
     while c != None and c != False:
         preC = c
         c = checkMov(arr,c)
-    if c == False:
+    if c == None and preC == sand:
         falling = False
         break
 
     arr[preC[0]][preC[1]] = 'o'
     count += 1
 #printArr(arr)
-print(count)
+print(count+1)
 
 
