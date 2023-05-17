@@ -56,5 +56,5 @@ while q:
             q.append(v)
     u.col = 0
 
-#printGrid(grid)
+printGrid(grid)
 print(end.d)

@@ -1,0 +1,27 @@
+Explanation of the Python code
+TL;DR
+The Python code reads a text file, creates a grid of coordinates, and uses a breadth-first search algorithm to find the shortest path between two points in the grid.
+Explanation
+The Python code starts by importing the deque class from the collections module. It then opens a text file called day12.txt and reads its contents into a list called lines. The strip() method is used to remove any leading or trailing whitespace from each line in the file. The file is then closed.
+The code defines a function called printGrid that takes a 2D list of Coord objects as an argument and prints the d attribute of each object in the grid. The Coord class is defined to store the x and y coordinates of a point in the grid, its value, color, distance, and predecessor.
+The code then creates a 2D list called grid with the same dimensions as the lines list. It populates the grid list with Coord objects, where each object represents a point in the grid. The val attribute of each Coord object is set to the ASCII value of the corresponding character in the lines list minus the ASCII value of the character 'a'. This maps the characters 'a' to 'z' to the integers 0 to 25, respectively. If a character in the lines list is 'S', the val attribute of the corresponding Coord object is set to 0 and the start variable is set to that object. If a character in the lines list is 'E', the val attribute of the corresponding Coord object is set to 25 and the end variable is set to that object.
+The start Coord object is then colored white (col attribute set to 1) and its distance (d attribute) is set to 0. The code then creates a deque object called q and adds the start Coord object to it.
+The code then enters a loop that continues until the q deque is empty. In each iteration of the loop, the code removes the leftmost Coord object from the q deque and finds its neighboring Coord objects. If a neighboring Coord object has a val attribute that is greater than or equal to the val attribute of the current Coord object plus 1, it is added to a list called coords. The d attribute of each neighboring Coord object in the coords list is set to the d attribute of the current Coord object plus 1, and its predecessor (pre attribute) is set to the current Coord object. The neighboring Coord object is then colored white (col attribute set to 1) and added to the q deque. The current Coord object is then colored black (col attribute set to 0).
+Finally, the printGrid function is called with the grid list as an argument, and the d attribute of the end Coord object is printed.
+Possible bugs
+
+If the day12.txt file does not exist or is not readable, the code will throw an error.
+If the lines list is empty or contains lines of different lengths, the code will not create a valid grid list.
+If the Coord objects in the grid list have duplicate coordinates, the code may not work correctly.
+If the val attribute of a Coord object is negative or greater than 25, the code may not work correctly.
+
+Possible improvements
+
+Add input validation to ensure that the lines list contains only valid characters.
+Use a priority queue instead of a deque to improve performance.
+Add an optional argument to allow the user to specify the start and end characters in the lines list.
+
+References
+
+Breadth-first search algorithm
+Python deque documentation
