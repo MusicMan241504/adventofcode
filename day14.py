@@ -64,7 +64,7 @@ while falling:
 
     arr[preC[0]][preC[1]] = 'o'
     count += 1
-#printArr(arr)
+printArr(arr)
 print(count)
 
 
